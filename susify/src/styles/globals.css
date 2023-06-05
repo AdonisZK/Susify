@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.search-bar-container {
+  z-index: 20;
+}
+
+.bg-lilac {
+  background-color: #c8a2c8;
+}
+
+.text-lilac {
+  color: #c8a2c8;
+}
+
+.blur-smaller {
+  filter: blur(100px); /* Adjust the value to your desired blur size */
+}
