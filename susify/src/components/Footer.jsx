@@ -7,7 +7,7 @@ import {
   FiLinkedin,
   FiTwitter,
 } from "react-icons/fi";
-import FiverrLogo from "./FiverrLogo";
+import SusifyLogo from "./SusifyLogo";
 import { categories } from "../utils/categories";
 
 function Footer() {
@@ -61,8 +61,8 @@ function Footer() {
       links: [
         { name: "Help & Support", link: "#" },
         { name: "Trust & Safety", link: "#" },
-        { name: "Selling on Fiverr", link: "#" },
-        { name: "Buying on Fiverr", link: "#" },
+        { name: "Selling on Susify", link: "#" },
+        { name: "Buying on Susify", link: "#" },
       ],
     },
     {
@@ -82,16 +82,16 @@ function Footer() {
       ],
     },
     {
-      headerName: "Move From Fiverr",
+      headerName: "Move From Susify",
       links: [
-        { name: "Fiverr Business", link: "#" },
-        { name: "Fiverr Pro", link: "#" },
-        { name: "Fiverr Logo Maker", link: "#" },
-        { name: "Fiverr Guides", link: "#" },
+        { name: "Susify Business", link: "#" },
+        { name: "Susify Pro", link: "#" },
+        { name: "Susify Logo Maker", link: "#" },
+        { name: "Susify Guides", link: "#" },
         { name: "Get Inspired", link: "#" },
-        { name: "Fiverr Select", link: "#" },
+        { name: "Susify Select", link: "#" },
         { name: "ClearVoice", link: "#" },
-        { name: "Fiverr Workspace", link: "#" },
+        { name: "Susify Workspace", link: "#" },
         { name: "Learn", link: "#" },
         { name: "Working Not Working", link: "#" },
       ],
@@ -116,7 +116,7 @@ function Footer() {
         })}
       </ul>
       <div className="mt-12 flex items-center justify-between">
-        <FiverrLogo fillColor={"#404145"} />
+        <SusifyLogo fillColor={"#404145"} />
         <ul className="flex gap-5">
           {socialLinks.map(({ icon, link, name }) => (
             <li

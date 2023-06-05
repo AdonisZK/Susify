@@ -1,6 +1,6 @@
 import React from "react";
 
-function FiverrLogo({ fillColor }) {
+function SusifyLogo({ fillColor }) {
   return (
     <svg
       width="89"
@@ -19,4 +19,4 @@ function FiverrLogo({ fillColor }) {
   );
 }
 
-export default FiverrLogo;
+export default SusifyLogo;

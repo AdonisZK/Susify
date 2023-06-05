@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     SERVER_URL: "http://localhost:3001"
-  }
-}
+  },
+  webpack: (config) => {
+    // Your existing Next.js configuration
+    return config;
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

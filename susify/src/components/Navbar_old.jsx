@@ -16,7 +16,7 @@ function Navbar() {
   const router = useRouter();
   const [navFixed, setNavFixed] = useState(false);
   const [searchData, setSearchData] = useState("");
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [{ showLoginModal, showSignupModal, isSeller, userInfo }, dispatch] =
     useStateProvider();
 
