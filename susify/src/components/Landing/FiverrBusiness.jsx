@@ -35,7 +35,7 @@ function FiverrBusiness() {
           </li>
         </ul>
         <button
-          className="border text-base font-medium px-5 py-2   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
+          className="border text-base font-medium px-5 py-2   border-[#C8A2C8] bg-[#C8A2C8] text-white rounded-md"
           type="button"
         >
           Explore Susify Business

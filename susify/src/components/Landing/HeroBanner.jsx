@@ -15,7 +15,7 @@ function HomeBanner() {
   }, [image]);
 
   return (
-    <div className="h-[680px] relative bg-cover">
+    <div className="h-[750px] relative bg-cover">
       <div className="absolute top-0 right-0 w-[110vw] h-full transition-opacity z-0">
         <Image
           alt="hero"

@@ -98,7 +98,7 @@ function Footer() {
     },
   ];
   return (
-    <footer className="w-full  mx-auto px-32 py-16 h-max border-t border-gray-200 bg-gray-100">
+    <footer className="w-full mx-auto px-32 py-16 h-max border-t border-gray-200 bg-gray-100">
       <ul className="flex justify-between">
         {data.map(({ headerName, links }) => {
           return (
@@ -121,7 +121,7 @@ function Footer() {
           {socialLinks.map(({ icon, link, name }) => (
             <li
               key={name}
-              className="text-xl text-[#404145] hover:text-[#1DBF73] transition-all"
+              className="text-xl text-[#404145] hover:text-[#C8A2C8] transition-all"
             >
               <Link href={link}>{icon}</Link>
             </li>

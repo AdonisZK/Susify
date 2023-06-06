@@ -16,7 +16,7 @@ function Navbar() {
   const router = useRouter();
   const [navFixed, setNavFixed] = useState(false);
   const [searchData, setSearchData] = useState("");
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [{ showLoginModal, showSignupModal, isSeller, userInfo }, dispatch] =
     useStateProvider();
 
@@ -238,7 +238,7 @@ function Navbar() {
                   onClick={() => router.push("/seller/item/create")}
                   // onClick={() => router.push("/seller/gigs/create")}
                 >
-                  Create Gig
+                  Create Listing
                 </li>
               )}
               <li
@@ -280,7 +280,7 @@ function Navbar() {
                     className="rounded-full"
                   />
                 ) : (
-                  <div className="bg-purple-500 h-10 w-10 flex items-center justify-center rounded-full relative">
+                  <div className="bg-lilac h-10 w-10 flex items-center justify-center rounded-full relative">
                     <span className="text-xl text-white">
                       {userInfo &&
                         userInfo?.email &&

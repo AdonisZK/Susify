@@ -32,7 +32,7 @@ function PopularServices() {
       <h2 className="text-4xl mb-5 text-[#404145] font-bold">
         Popular Items
       </h2>
-      <ul className="flex flex-wrap gap-16">
+      <ul className="flex flex-wrap gap-16 ">
         {popularServicesData.map(({ name, label, image }) => {
           return (
             <li
@@ -40,9 +40,9 @@ function PopularServices() {
               className="relative cursor-pointer"
               onClick={() => router.push(`/search?q=${name.toLowerCase()}`)}
             >
-              <div className="absolute z-10 text-white left-5 top-4" >
+              <div className="absolute z-10 text-white left-4 top-4 " >
                 <span>{label}</span>
-                <h6 className="font-extrabold text-2xl">{name}</h6>
+                <h6 className="font-extrabold text-2xl ">{name}</h6>
               </div>
               <div className="h-80 w-72 ">
                 <Image src={image} fill alt="service" />
