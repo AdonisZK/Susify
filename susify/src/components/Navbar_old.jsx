@@ -113,6 +113,7 @@ function Navbar() {
           });
           setIsLoaded(true);
           console.log({ user });
+          console.log(user.description);
           if (user.isProfileSet === false) {
             router.push("/profile");
           }

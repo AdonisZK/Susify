@@ -90,3 +90,45 @@ export const getUserInfo = async (req, res, next) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+
+export const setUserInfo = async (req, res, next) => {
+  try {
+    if (req?.userId) {
+      const { userName, fullName, description, address } = req.body;
+      if (userName && fullName && description && address) {
+        const prisma = new PrismaClient();
+        const userNameValid = await prisma.user.findUnique({
+          where: { username: userName },
+        });
+        if (userNameValid) {
+          return res.status(200).json({ userNameError: true });
+        }
+        await prisma.user.update({
+          where: { id: req.userId },
+          data: {
+            username: userName,
+            fullName,
+            description,
+            address,
+            isProfileInfoSet: true,
+          },
+        });
+        return res.status(200).send("Profile data updated successfully.");
+      } else {
+        return res
+          .status(400)
+          .send("Username, Full Name, Description, and Address should be included.");
+      }
+    }
+  } catch (err) {
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      if (err.code === "P2002") {
+        return res.status(400).json({ userNameError: true });
+      }
+    } else {
+      return res.status(500).send("Internal Server Error");
+    }
+    throw err;
+  }
+};
+

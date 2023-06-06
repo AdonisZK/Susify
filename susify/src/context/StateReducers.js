@@ -2,7 +2,7 @@ import { reducerCases } from "./constants";
 
 export const initialState = {
     userInfo: undefined,
-    showLoginModal: false,
+    showLoginModal: true,
     showSignupModal: false,
     isSeller: false,
     gigData: undefined,
