@@ -22,6 +22,7 @@ function Profile() {
     userName: "",
     fullName: "",
     description: "",
+    no:"",
     address: "",
   });
 
@@ -31,6 +32,7 @@ function Profile() {
       if (userInfo?.username) handleData.userName = userInfo?.username;
       if (userInfo?.description) handleData.description = userInfo?.description;
       if (userInfo?.address) handleData.address = userInfo?.address;
+      if (userInfo?.no) handleData.no = userInfo?.no;
       if (userInfo?.fullName) handleData.fullName = userInfo?.fullName;
       console.log({ userInfo });
 
@@ -118,9 +120,6 @@ function Profile() {
             </div>
           )}
           <h2 className="text-3xl">Welcome to Susify</h2>
-          <h4 className="text-xl">
-            Please complete your profile to get started
-          </h4>
           <div className="flex flex-col items-center w-full gap-5">
             <div
               className="flex flex-col items-center cursor-pointer"
@@ -230,6 +229,20 @@ function Profile() {
                 onChange={handleChange}
                 className={inputClassName}
                 placeholder="Address"
+              ></textarea>
+            </div>
+
+            <div className="flex flex-col w-[500px]">
+              <label className={labelClassName} htmlFor="no">
+                No HP
+              </label>
+              <textarea
+                name="no"
+                id="no"
+                value={data.no}
+                onChange={handleChange}
+                className={inputClassName}
+                placeholder="No HP"
               ></textarea>
             </div>
             <button

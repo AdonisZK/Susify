@@ -94,8 +94,8 @@ export const getUserInfo = async (req, res, next) => {
 export const setUserInfo = async (req, res, next) => {
   try {
     if (req?.userId) {
-      const { userName, fullName, description, address } = req.body;
-      if (userName && fullName && description && address) {
+      const { userName, fullName, description, address, no} = req.body;
+      if (userName && fullName && description && address && no) {
         const prisma = new PrismaClient();
         const userNameValid = await prisma.user.findUnique({
           where: { username: userName },
@@ -109,6 +109,7 @@ export const setUserInfo = async (req, res, next) => {
             username: userName,
             fullName,
             description,
+            no,
             address,
             isProfileInfoSet: true,
           },

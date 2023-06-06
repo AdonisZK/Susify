@@ -19,6 +19,7 @@ model User {
   description      String?
   profileImage     String?
   address          String?
+  no               String?
   isProfileInfoSet Boolean?  @default(false)
   createAt         DateTime? @default(now())
 }
