@@ -61,26 +61,26 @@ function HomeBanner() {
           Recommended:
           <ul className="flex gap-5">
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
-              onClick={() => router.push("/search?q=website design")}
+              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300 	cursor-pointer"
+              onClick={() => router.push("/search?q=playstation 5")}
             >
               Playstation 5
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
-              onClick={() => router.push("/search?q=wordpress")}
+              onClick={() => router.push("/search?q=figure")}
             >
               Figure
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
-              onClick={() => router.push("/search?q=logo design")}
+              onClick={() => router.push("/search?q=amogus plush")}
             >
               Amogus Plush
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
-              onClick={() => router.push("/search?q=ai services")}
+              onClick={() => router.push("/search?q=switch zelda totk")}
             >
               Switch Zelda TOTK
             </li>

@@ -17,3 +17,7 @@
 .blur-smaller {
   filter: blur(100px); /* Adjust the value to your desired blur size */
 }
+
+.black-label {
+  color: black;
+}
