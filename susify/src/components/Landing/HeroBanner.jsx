@@ -28,31 +28,27 @@ function HomeBanner() {
         {
          <Image
           alt="hero"
-          src="/bg-hero2.webp"
+          src="/bg-fp2new.webp"
           fill
           className={`${
             image === 2 ? "opacity-100" : "opacity-0"
           } transition-all duration-1000`}
         />}
       </div>
-      <div className="z-10 relative w-[650px] h-[250px] flex justify-center flex-col h-full gap-5 ml-20">
-        {/* <h1 className="text-white text-5xl leading-snug">
-          Find the perfect&nbsp;
-          <i>freelance</i>
-          <br />
-          services for your business
-        </h1> */}
+      <div className="z-10 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
+   
         <div className="flex align-middle ">
           <div className="relative">
             <IoSearchOutline className="absolute text-gray-500 text-2xl flex align-middle h-full left-2" />
             <input
               type="text"
-              className="h-14 w-[1570px] pl-10 rounded-md rounded-r-none"
+              className="h-14 w-[1595px] pl-10 rounded-md rounded-r-none"
               placeholder={`Cari di Susify`}
               value={searchData}
               onChange={(e) => setSearchData(e.target.value)}
             />
           </div>
+        
           <button
             className="bg-lilac text-white px-12 text-lg font-semibold rounded-r-md"
             onClick={() => router.push(`/search?q=${searchData}`)}
@@ -60,33 +56,35 @@ function HomeBanner() {
             Search
           </button>
         </div>
-        <div className="text-white flex gap-4">
+     
+        <div className="text-white flex gap-4" style={{ marginBottom: '415px' }}>
           Recommended:
           <ul className="flex gap-5">
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=website design")}
             >
-              Website Design
+              Playstation 5
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=wordpress")}
             >
-              Wordpress
+              Figure
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=logo design")}
             >
-              Logo Design
+              Amogus Plush
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=ai services")}
             >
-              AI Services
+              Switch Zelda TOTK
             </li>
+            
           </ul>
         </div>
       </div>

@@ -172,11 +172,11 @@ function Navbar() {
           }`}
         >
           <div>
-            <Link href="/">
-              <SusifyLogo
-                fillColor={!navFixed && !userInfo ? "#ffffff" : "#404145"}
-              />
-            </Link>
+            <img
+              src="../../new-logo.png"
+              alt="logo"
+              style={{ fill: !navFixed && !userInfo ? "#ffffff" : "#404145" }}
+            />
           </div>
           <div
             className={`flex ${
@@ -185,7 +185,7 @@ function Navbar() {
           >
             <input
               type="text"
-              placeholder="What service are you looking for today?"
+              placeholder="Mau belanja apa hari ini?"
               className="w-[30rem] py-2.5 px-4 border"
               value={searchData}
               onChange={(e) => setSearchData(e.target.value)}
@@ -219,9 +219,9 @@ function Navbar() {
                         onClick={handler}
                         className={`border   text-md font-semibold py-1 px-3 rounded-sm ${
                           navFixed
-                            ? "border-[#1DBF73] text-[#1DBF73]"
+                            ? "border-[#c8a2c8] text-[#c8a2c8]"
                             : "border-white text-white"
-                        } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
+                        } hover:bg-[#c8a2c8] hover:text-white hover:border-[#c8a2c8] transition-all duration-500`}
                       >
                         {linkName}
                       </button>
@@ -234,14 +234,15 @@ function Navbar() {
             <ul className="flex gap-10 items-center">
               {isSeller && (
                 <li
-                  className="cursor-pointer text-[#1DBF73] font-medium"
-                  onClick={() => router.push("/seller/gigs/create")}
+                  className="cursor-pointer text-[#c8a2c8] font-medium"
+                  onClick={() => router.push("/seller/item/create")}
+                  // onClick={() => router.push("/seller/gigs/create")}
                 >
                   Create Gig
                 </li>
               )}
               <li
-                className="cursor-pointer text-[#1DBF73] font-medium"
+                className="cursor-pointer text-[#c8a2c8] font-medium"
                 onClick={handleOrdersNavigate}
               >
                 Orders

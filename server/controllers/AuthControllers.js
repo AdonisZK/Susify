@@ -27,10 +27,10 @@ export const signup = async (req, res, next) => {
         },
       });
       return res.status(200)
-      .json({ 
-        user: { id: user.id, email: user.email },
-        jwt: createToken(email, user.id),
-    });
+        .json({
+          user: { id: user.id, email: user.email },
+          jwt: createToken(email, user.id),
+        });
     }
     return res.status(400).send("Email and Password required");
   } catch (err) {
@@ -57,10 +57,10 @@ export const login = async (req, res, next) => {
       }
 
       return res.status(200)
-      .json({ 
-        user: { id: user.id, email: user.email },
-        jwt: createToken(email, user.id),
-    });
+        .json({
+          user: { id: user.id, email: user.email },
+          jwt: createToken(email, user.id),
+        });
     }
     return res.status(400).send("Email and Password required");
   } catch (err) {
@@ -68,3 +68,5 @@ export const login = async (req, res, next) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+
+export const getUserInfo = (req, res, next) => { };

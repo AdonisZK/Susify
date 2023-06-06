@@ -17,7 +17,7 @@ function Index() {
     {/* <Companies /> */}
     <PopularServices />
     {/* <Everything /> */}
-    <Services />
+    {/* <Services /> */}
     {/* <AuthWrapper /> */}
     {/* <FiverrBusiness />
     <JoinFiverr /> */}

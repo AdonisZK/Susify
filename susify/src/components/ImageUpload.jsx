@@ -73,7 +73,7 @@ function ImageUpload({ files, setFile }) {
                       X
                     </i>
                     <div className="relative h-20 w-20 rounded-md">
-                      <Image src={URL.createObjectURL(file)} fill alt="Gigs" />
+                      <Image src={URL.createObjectURL(file)} fill alt="Item" />
                     </div>
                   </div>
                 );
