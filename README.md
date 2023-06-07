@@ -9,4 +9,7 @@
 - Cek .env 
 - https://youtu.be/cJ7xvBkuqiA?t=6635 coba import db ke postgresql
 - Cek table di postgres sama /server (npm prisma studio)
+- /server yarn dev
+- /susify yarn dev
+- masuk localhost
 - Coba login -> masukin data
