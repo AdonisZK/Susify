@@ -6,7 +6,7 @@
 - Git Clone
 - Masuk /server npm install
 - Masuk /susify npm install
-- Cek .env 
+- Cek server/.env sesuain sama local 
 - https://youtu.be/cJ7xvBkuqiA?t=6635 coba import db ke postgresql
 - Cek table di postgres sama /server (npm prisma studio)
 - /server yarn dev
