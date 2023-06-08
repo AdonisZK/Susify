@@ -235,7 +235,7 @@ function Navbar() {
               {isSeller && (
                 <li
                   className="cursor-pointer text-[#c8a2c8] font-medium"
-                  onClick={() => router.push("/seller/item/create")}
+                  onClick={() => router.push("/seller/listing/create")}
                   // onClick={() => router.push("/seller/gigs/create")}
                 >
                   Create Listing

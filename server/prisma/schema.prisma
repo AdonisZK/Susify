@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -19,7 +16,21 @@ model User {
   description      String?
   profileImage     String?
   address          String?
-  no               String?
   isProfileInfoSet Boolean?  @default(false)
   createAt         DateTime? @default(now())
+  no               String?
+  listing          Listing[]
+}
+
+model Listing {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  stock       Int
+  price       Int
+  createdAt   DateTime @default(now())
+  images      String[]
+  userId      Int
+  createdBy   User     @relation(fields: [userId], references: [id])
 }

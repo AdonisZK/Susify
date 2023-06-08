@@ -1,12 +1,13 @@
 import ImageUpload from "../../../components/ImageUpload";
 import { categories } from "../../../utils/categories";
-import { ADD_GIG_ROUTE } from "../../../utils/constants";
+import { ADD_LISTING_ROUTE } from "../../../utils/constants";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
 function create() {
+  const router = useRouter();
   const [files, setFile] = useState([]);
   const [features, setfeatures] = useState([]);
   const [data, setData] = useState({
@@ -21,7 +22,7 @@ function create() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const addItem = async () => {
+  const addListing = async () => {
     const { category, description, price, stock, title } = data;
     if (
       category &&
@@ -33,23 +34,25 @@ function create() {
     ) {
       const formData = new FormData();
       files.forEach((file) => formData.append("images", file));
-      const gigData = {
+      const listingData = {
         title,
         description,
         category,
         price,
         stock,
       };
-      const response = await axios.post(ADD_GIG_ROUTE, formData, {
+      const response = await axios.post(ADD_LISTING_ROUTE, formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${cookies.jwt}`,
+          // Authorization: `Bearer ${cookies.jwt}`,
         },
-        params: gigData,
+        params: listingData,
       });
+      console.log(response);
       if (response.status === 201) {
-        router.push("/seller/gigs");
+        router.push("/seller/listing");
+        // router.push("/seller/gigs");
       }
     }
   };
@@ -62,14 +65,14 @@ function create() {
     <div className="min-h-[80vh] my-10 mt-0 px-32">
       <h1 className="text-6xl text-gray-900 mb-5">Create a new listing</h1>
       <h3 className="text-3xl text-gray-900 mb-5">
-        Enter the details to create the item
+        Enter the details to create the listing
       </h3>
 
       <div className="flex flex-col gap-5 mt-10">
         <div className="grid grid-cols-2 gap-11">
           <div>
             <label htmlFor="title" className={labelClassName}>
-              Item Name
+              Listing Name
             </label>
             <input
               name="title"
@@ -78,7 +81,7 @@ function create() {
               type="text"
               id="title"
               className={inputClassName}
-              placeholder="Item Name"
+              placeholder="Listing Name"
               required
             />
           </div>
@@ -102,7 +105,7 @@ function create() {
           </div>
           <div>
             <label htmlFor="description" className={labelClassName}>
-              Item Description
+              Listing Description
             </label>
             <textarea
               id="description"
@@ -116,7 +119,7 @@ function create() {
           <div className="grid grid-cols-2 gap-11">
             <div>
               <label htmlFor="stock" className={labelClassName}>
-                Item Stock
+                Listing Stock
               </label>
               <input
                 type="number"
@@ -145,7 +148,7 @@ function create() {
           </div>
           <div>
             <label htmlFor="image" className={labelClassName}>
-              Item Images
+              Listing Images
             </label>
             <div>
               <ImageUpload files={files} setFile={setFile} />
@@ -155,7 +158,7 @@ function create() {
         <button
           className="border mt-5 text-lg font-semibold px-5 py-3 border-[#C8A2C8] bg-[#C8A2C8] text-white rounded-md"
           type="button"
-          onClick={addItem}
+          onClick={addListing}
         >
           Create
         </button>

@@ -5,7 +5,7 @@ export const initialState = {
     showLoginModal: false,
     showSignupModal: false,
     isSeller: false,
-    gigData: undefined,
+    listingData: undefined,
     hasOrdered: false,
     reloadReviews: false,
 };
@@ -38,13 +38,13 @@ const reducer = (state, action) => {
                 ...state,
                 isSeller: !state.isSeller,
             };
-        case reducerCases.SET_GIG_DATA:
+        case reducerCases.SET_LISTING_DATA:
             return {
                 ...state,
-                gigData: action.gigData,
+                listingData: action.listingData,
             };
 
-        case reducerCases.HAS_USER_ORDERED_GIG:
+        case reducerCases.HAS_USER_ORDERED_LISTING:
             return {
                 ...state,
                 hasOrdered: action.hasOrdered,
@@ -52,9 +52,9 @@ const reducer = (state, action) => {
         case reducerCases.ADD_REVIEW:
             return {
                 ...state,
-                gigData: {
-                    ...state.gigData,
-                    reviews: [...state.gigData.reviews, action.newReview],
+                listingData: {
+                    ...state.listingData,
+                    reviews: [...state.listingData.reviews, action.newReview],
                 },
             };
         default:
