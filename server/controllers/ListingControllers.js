@@ -41,6 +41,7 @@ export const addListing = async (req, res, next) => {
 
 export const getUserAuthListing = async (req, res, next) => {
   try {
+
     const prisma = new PrismaClient();
     const user = await prisma.user.findUnique({
       where: { id: req.userId },
@@ -48,6 +49,7 @@ export const getUserAuthListing = async (req, res, next) => {
     });
     console.log({ user });
     return res.status(200).json({ listing: user?.listing });
+
   } catch (err) {
     console.log(err);
     return res.status(500).send("Internal Server Error");

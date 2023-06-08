@@ -7,4 +7,4 @@ export const listingRoutes = Router()
 const upload = multer({ dest: "uploads/" });
 
 listingRoutes.post("/add", verifyToken, upload.array("images"), addListing)
-listingRoutes.post("/get-user-listing", verifyToken, getUserAuthListing)
+listingRoutes.get("/get-user-listing", verifyToken, getUserAuthListing)
