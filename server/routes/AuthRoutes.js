@@ -2,7 +2,7 @@ import { Router } from "express"
 import {
     getUserInfo,
     login,
-    // setUserImage,
+    setUserImage,
     setUserInfo,
     signup,
 } from "../controllers/AuthControllers.js";
@@ -18,11 +18,11 @@ authRoutes.post("/login", login)
 authRoutes.post("/get-user-info", verifyToken, getUserInfo)
 authRoutes.post("/set-user-info", verifyToken, setUserInfo)
 
-// authRoutes.post(
-//     "/set-user-image",
-//     verifyToken,
-//     upload.single("images"),
-//     setUserImage
-//   );
+authRoutes.post(
+    "/set-user-image",
+    verifyToken,
+    upload.single("images"),
+    setUserImage
+);
 
 export default authRoutes

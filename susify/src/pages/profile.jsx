@@ -41,9 +41,7 @@ function Profile() {
         fetch(userInfo.imageName).then(async (response) => {
           const contentType = response.headers.get("content-type");
           const blob = await response.blob();
-          // @ts-ignore
           const files = new File([blob], fileName, { contentType });
-          // @ts-ignore
           setImage(files);
         });
       }
@@ -89,7 +87,6 @@ function Profile() {
           });
           imageName = img;
         }
-
         dispatch({
           type: reducerCases.SET_USER,
           userInfo: {

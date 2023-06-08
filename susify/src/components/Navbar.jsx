@@ -98,12 +98,12 @@ function Navbar() {
               },
             }
           );
-
+          console.log({ user })
           let projectedUserInfo = { ...user };
-          if (user.image) {
+          if (user.profileImage) {
             projectedUserInfo = {
               ...projectedUserInfo,
-              imageName: HOST + "/" + user.image,
+              imageName: HOST + "/" + user.profileImage,
             };
           }
           delete projectedUserInfo.image;
