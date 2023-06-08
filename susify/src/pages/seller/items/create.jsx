@@ -14,14 +14,44 @@ function create() {
     category: "",
     description: "",
     stock: 1,
-    min: 1,
-    feature: "",
     price: 0,
-    shortDesc: "",
   });
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const addItem = async () => {
+    const { category, description, price, stock, title } = data;
+    if (
+      category &&
+      description &&
+      title &&
+      files.length &&
+      price > 0 &&
+      stock > 0
+    ) {
+      const formData = new FormData();
+      files.forEach((file) => formData.append("images", file));
+      const gigData = {
+        title,
+        description,
+        category,
+        price,
+        stock,
+      };
+      const response = await axios.post(ADD_GIG_ROUTE, formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${cookies.jwt}`,
+        },
+        params: gigData,
+      });
+      if (response.status === 201) {
+        router.push("/seller/gigs");
+      }
+    }
   };
 
   const inputClassName =
@@ -30,7 +60,7 @@ function create() {
     "mb-2 text-lg font-medium text-gray-900  dark:text-black";
   return (
     <div className="min-h-[80vh] my-10 mt-0 px-32">
-      <h1 className="text-6xl text-gray-900 mb-5">Create a new Item</h1>
+      <h1 className="text-6xl text-gray-900 mb-5">Create a new listing</h1>
       <h3 className="text-3xl text-gray-900 mb-5">
         Enter the details to create the item
       </h3>
@@ -99,21 +129,36 @@ function create() {
               />
             </div>
             <div>
-              <label htmlFor="min" className={labelClassName}>
-                Min Pemesanan
+              <label htmlFor="price" className={labelClassName}>
+                Price ( IDR )
               </label>
               <input
                 type="number"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
-                id="min"
-                name="min"
-                value={data.min}
+                id="price"
+                placeholder="Enter a price"
+                name="price"
+                value={data.price}
                 onChange={handleChange}
-                placeholder="Min Pemesanan"
               />
             </div>
           </div>
+          <div>
+            <label htmlFor="image" className={labelClassName}>
+              Item Images
+            </label>
+            <div>
+              <ImageUpload files={files} setFile={setFile} />
+            </div>
+          </div>
         </div>
+        <button
+          className="border mt-5 text-lg font-semibold px-5 py-3 border-[#C8A2C8] bg-[#C8A2C8] text-white rounded-md"
+          type="button"
+          onClick={addItem}
+        >
+          Create
+        </button>
       </div>
     </div>
   );
