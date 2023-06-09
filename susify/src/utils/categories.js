@@ -1,4 +1,5 @@
 export const categories = [
+    { name: "Category", logo: "/service-1.svg" },
     { name: "Electronic", logo: "/service-1.svg" },
     { name: "Hobby", logo: "/service-2.svg" },
     { name: "Dapur", logo: "/service-3.svg" },

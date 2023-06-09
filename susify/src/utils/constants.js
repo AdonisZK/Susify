@@ -12,3 +12,5 @@ export const SET_USER_IMAGE = `${AUTH_ROUTES}/set-user-image`;
 
 export const ADD_LISTING_ROUTE = `${LISTING_ROUTES}/add`;
 export const GET_USER_LISTING_ROUTE = `${LISTING_ROUTES}/get-user-listing`;
+export const GET_LISTING_DATA = `${LISTING_ROUTES}/get-listing-data`;
+export const EDIT_LISTING_ROUTE = `${LISTING_ROUTES}/edit-listing`;
