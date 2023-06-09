@@ -59,7 +59,7 @@ export const getListingData = async (req, res, next) => {
     if (req.params.listingId) {
       const prisma = new PrismaClient();
       const listing = await prisma.listing.findUnique({
-        where: { id: parseInt(req.params.listingId)}
+        where: { id: parseInt(req.params.listingId) }
       });
       return res.status(200).json({ listing });
     }
@@ -87,7 +87,7 @@ export const editListingData = async (req, res, next) => {
         const { title, description, category, price, stock } = req.query;
         const prisma = new PrismaClient();
         const oldData = await prisma.listing.findUnique({
-            where: { id: parseInt(req.params.listingId) }
+          where: { id: parseInt(req.params.listingId) }
         })
         await prisma.listing.update({
           where: { id: parseInt(req.params.listingId) },
@@ -112,4 +112,47 @@ export const editListingData = async (req, res, next) => {
     console.log(err);
     res.status(500).send("Internal Server Occured");
   }
+};
+
+export const searchListing = async (req, res, next) => {
+  try {
+    if (req.query.searchTerm || req.query.category) {
+      const prisma = new PrismaClient();
+      const listing2 = await prisma.listing.findMany(
+        createSearchQuery(req.query.searchTerm, req.query.category),
+      );
+      return res.status(200).json({ listing2 });
+    }
+    return res.status(400).send("Search Term or Category is required");
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send("Internal Server Error");
+  }
+};
+
+const createSearchQuery = (searchTerm, category) => {
+  const query = {
+    where: {
+      OR: [],
+    },
+    include: {
+      // reviews: {
+      //   include: {
+      //     reviewer: true,
+      //   },
+      // },
+      createdBy: true,
+    },
+  };
+  if (searchTerm) {
+    query.where.OR.push({
+      title: { contains: searchTerm, mode: "insensitive" },
+    });
+  }
+  if (category) {
+    query.where.OR.push({
+      category: { contains: category, mode: "insensitive" },
+    });
+  }
+  return query;
 };
