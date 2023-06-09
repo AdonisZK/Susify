@@ -15,7 +15,6 @@ function search() {
         const { data } = await axios.get(
           `${SEARCH_LISTING_ROUTE}?searchTerm=${q}&category=${category}}`
         );
-        console.log({ listing2 });
         setlisting(data.listing2);
       } catch (err) {
         console.log(err);

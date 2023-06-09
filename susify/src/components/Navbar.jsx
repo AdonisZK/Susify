@@ -176,6 +176,7 @@ function Navbar() {
               src="../../new-logo.png"
               alt="logo"
               style={{ fill: !navFixed && !userInfo ? "#ffffff" : "#404145" }}
+              onClick={() => router.push(`/`)}
             />
           </div>
           <div
