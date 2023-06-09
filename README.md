@@ -13,3 +13,6 @@
 - /susify yarn dev
 - masuk localhost
 - Coba login -> masukin data
+
+## Change Log
+[6:00:00] Skipping bearer authentication
