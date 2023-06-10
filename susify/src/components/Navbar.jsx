@@ -78,7 +78,7 @@ function Navbar() {
       router.push("/buyer/orders");
     } else {
       dispatch({ type: reducerCases.SWITCH_MODE });
-      router.push("/seller");
+      router.push("/seller/orders");
     }
   };
 

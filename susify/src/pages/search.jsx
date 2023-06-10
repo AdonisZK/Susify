@@ -45,7 +45,7 @@ function search() {
           <div>
             <div className="my-4">
               <span className="text-[#74767e] font-medium ">
-                {listing2.length} services available
+                {listing2.length} listing available
               </span>
             </div>
             <div className="grid grid-cols-4">

@@ -5,27 +5,21 @@ import React from "react";
 function PopularServices() {
   const router = useRouter();
   const popularServicesData = [
-    { name: "Figures", image: "/item1alt.png" },
-    { name: "Shoes", image: "/item2.png" },
+    { name: "Figure", image: "/item1alt.png" },
+    { name: "Shoe", image: "/item2.png" },
     {
-      name: "Plushes",
+      name: "Plush",
       image: "/item3.png",
     },
     {
-      name: "Games",
+      name: "Game",
       image: "/item4new.png",
     },
     {
-      name: "Chairs",
+      name: "Chair",
       image: "/item5new.png",
     },
-    // { name: "SEO", label: "Unlock growth online", image: "/service6.jpeg" },
-    // {
-    //   name: "Illustration",
-    //   label: "Color your dreams",
-    //   image: "/service7.jpeg",
-    // },
-    // { name: "Translation", label: "Go global", image: "/service8.jpeg" },
+ 
   ];
   return (
     <div className="mx-20 my-16">
