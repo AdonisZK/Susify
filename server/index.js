@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/listing", listingRoutes);
-app.use("/api/order", ordersRoutes)
+app.use("/api/orders", ordersRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);

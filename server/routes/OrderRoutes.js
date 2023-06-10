@@ -4,4 +4,4 @@ import { addOrder } from "../controllers/OrderControllers.js";
 
 export const ordersRoutes = Router();
 
-ordersRoutes.get("/create", verifyToken, addOrder)
+ordersRoutes.post("/create", verifyToken, addOrder)

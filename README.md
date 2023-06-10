@@ -19,3 +19,4 @@
 
 ## Change Log
 [6:00:00] Skipping bearer authentication
+[6:42:00] Setup Stripe on .env
