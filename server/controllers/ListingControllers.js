@@ -170,11 +170,11 @@ const createSearchQuery = (searchTerm, category) => {
       OR: [],
     },
     include: {
-      // reviews: {
-      //   include: {
-      //     reviewer: true,
-      //   },
-      // },
+      reviews: {
+        include: {
+          reviewer: true,
+        },
+      },
       createdBy: true,
     },
   };

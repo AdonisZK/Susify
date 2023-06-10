@@ -6,7 +6,17 @@ import { FaStar } from "react-icons/fa";
 
 function SearchGridItem({ listing }) {
   const router = useRouter();
-  const calculateRatings = () => {};
+  const calculateRatings = () => {
+    const { reviews } = listing;
+    let rating = 0;
+    if (!reviews?.length) {
+      return 0;
+    }
+    reviews?.forEach((review) => {
+      rating += review.rating;
+    });
+    return (rating / reviews.length).toFixed(1);
+  };
 
   return (
     <div
@@ -51,7 +61,7 @@ function SearchGridItem({ listing }) {
         <span>
           <strong className="font-medium">{calculateRatings()}</strong>
         </span>
-        {/* <span className="text-[#74767e]">({listing?.reviews.length})</span> */}
+        <span className="text-[#74767e]">({listing?.reviews?.length})</span>
       </div>
       <div>
         <strong className="font-medium">IDR {listing.price}</strong>

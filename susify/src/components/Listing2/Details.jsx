@@ -52,13 +52,13 @@ function Details() {
             </div>
             <div className="flex items-center gap-1">
               <div className="flex">
-                {[1, 2, 3, 4, 5].map((star) => (
+                {/* {[1, 2, 3, 4, 5].map((star) => (
                   <FaStar
                     key={star}
                     className={`cursor-pointer 
                     `}
                   />
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
