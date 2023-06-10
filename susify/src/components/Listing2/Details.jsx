@@ -71,6 +71,87 @@ function Details() {
                 className="hover:scale-110 transition-all duration-500"
               />
             </div>
+            <div className="flex gap-4 flex-wrap">
+              {listingData.images.length > 1 &&
+                listingData.images.map((image) => (
+                  <Image
+                    src={HOST + "/uploads/" + image}
+                    alt="listing"
+                    height={100}
+                    width={100}
+                    key={image}
+                    onClick={() => setCurrentImage(image)}
+                    className={`${
+                      currentImage === image ? "" : ""
+                    } cursor-pointer transition-all duration-500`}
+                  />
+                ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-3xl my-5 font-medium text-[#404145]">
+              About this listing
+            </h3>
+            <div>
+              <p>{listingData.description}</p>
+            </div>
+            <div className="">
+            <h3 className="text-3xl my-5 font-medium text-[#404145]">
+              About the Seller
+            </h3>
+            <div className="flex gap-4 mb-12">
+              <div>
+                {listingData.createdBy.profileImage ? (
+                  <Image
+                    src={HOST + "/" + listingData.createdBy.profileImage}
+                    alt="profile"
+                    height={120}
+                    width={120}
+                    className="rounded-full"
+                  />
+                ) : (
+                  <div className="bg-purple-500 h-10 w-10 flex items-center justify-center rounded-full relative">
+                    <span className="text-xl text-white">
+                      {listingData.createdBy.email[0].toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col gap-1">
+                <div className="flex  gap-2 items-center">
+                  <h4 className="font-medium text-lg">
+                    {listingData.createdBy.fullName}
+                  </h4>
+                  <span className="text-[#74767e]">
+                    @{listingData.createdBy.username}
+                  </span>
+                </div>
+                <div>
+                  <p>{listingData.createdBy.description}</p>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="flex text-yellow-500">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <FaStar
+                        key={star}
+                        className={`cursor-pointer ${
+                          Math.ceil(listingData.averageRating) >= star
+                            ? "text-yellow-400"
+                            : "text-gray-300"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-yellow-500">
+                    {listingData.averageRating}
+                  </span>
+                  <span className="text-[#74767e]">
+                    ({listingData.totalReviews})
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       )}

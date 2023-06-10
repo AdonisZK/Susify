@@ -18,7 +18,7 @@ function Pricing() {
           <div className="border p-10 flex flex-col gap-5">
             <div className="flex justify-between">
               <h4 className="text-md font-normal text-[#74767e]">
-                {listingData.description}
+                {listingData.title}
               </h4>
               <h6 className="font-medium text-lg">IDR {listingData.price}</h6>
             </div>
