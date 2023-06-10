@@ -1,5 +1,8 @@
 # Susify_new
 
+## Important
+- Check server\prisma\schema.prisma
+
 ## Setup Guide
 - Download Yarn
 - Setup Postgresql https://www.youtube.com/watch?v=0n41UTkOBb0&t=386s

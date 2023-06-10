@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/AuthRoutes.js";
 import cookieParser from "cookie-parser";
 import { listingRoutes } from "./routes/ListingRoutes.js";
+import { ordersRoutes } from "./routes/OrderRoutes.js";
 
 dotenv.config()
 
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/listing", listingRoutes);
+app.use("/api/order", ordersRoutes)
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);

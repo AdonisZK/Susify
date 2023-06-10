@@ -20,6 +20,7 @@ model User {
   createAt         DateTime? @default(now())
   no               String?
   listing          Listing[]
+  orders           Orders[]
 }
 
 model Listing {
@@ -33,4 +34,18 @@ model Listing {
   images      String[]
   userId      Int
   createdBy   User     @relation(fields: [userId], references: [id])
+  orders      Orders[]
+}
+
+model Orders {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  buyer         User     @relation(fields: [buyerId], references: [id])
+  buyerId       Int
+  paymentIntent String   @unique
+  status   Int      @default(0)
+  // 0 = not completed, 1 = completed, 2 = cancelled, 3 = refunded
+  listing       Listing  @relation(fields: [listingId], references: [id])
+  listingId     Int
+  price         Int
 }
