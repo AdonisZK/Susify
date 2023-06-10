@@ -3,6 +3,7 @@ import { HOST } from "@/utils/constants";
 import Image from "next/image";
 import React from "react";
 import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 
 function Details() {
   const [{ listingData, hasOrdered }] = useStateProvider();
@@ -10,7 +11,7 @@ function Details() {
 
   useEffect(() => {
     if (listingData) {
-        console.log(listingData);
+      console.log(listingData);
       setCurrentImage(listingData.images[0]);
     }
   }, [listingData]);
@@ -44,22 +45,32 @@ function Details() {
               <h4 className="text-[#27272a] font-bold">
                 {listingData.createdBy?.fullName}
               </h4>
-              <h6 className="text-[#74767e]">@{listingData.createdBy?.username}</h6>
+              <h6 className="text-[#74767e]">
+                @{listingData.createdBy?.username}
+              </h6>
             </div>
-            {/* <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <FaStar
                     key={star}
-                    className={`cursor-pointer ${
-                      Math.ceil(averageRatings) >= star
-                        ? "text-yellow-400"
-                        : "text-gray-300"
-                    }`}
+                    className={`cursor-pointer 
+                    `}
                   />
                 ))}
               </div>
-            </div> */}
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="max-h-[1000px] max-w-[1000px] overflow-hidden">
+              <Image
+                src={HOST + "/uploads/" + currentImage}
+                alt="Listing"
+                height={1000}
+                width={1000}
+                className="hover:scale-110 transition-all duration-500"
+              />
+            </div>
           </div>
         </div>
       )}
