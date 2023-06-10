@@ -24,9 +24,9 @@ function checkout() {
           { listingId },
           {
             withCredentials: true,
-            headers: {
-              Authorization: `Bearer ${cookies.jwt}`,
-            },
+            // headers: {
+            //   Authorization: `Bearer ${cookies.jwt}`,
+            // },
           },
         );
         setClientSecret(data.clientSecret)

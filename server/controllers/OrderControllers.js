@@ -14,7 +14,7 @@ export const addOrder = async (req, res, next) => {
         where: { id: parseInt(listingId) },
       });
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: listing?.price * 1,
+        amount: listing?.price * 1000000,
         currency: "idr",
         payment_method_types: ['card'],
       });

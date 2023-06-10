@@ -21,7 +21,7 @@ function Success() {
     };
     if (payment_intent) {
       changeOrderStatus();
-    //   setTimeout(() => router.push("/buyer/orders"), 5000);
+      setTimeout(() => router.push("/buyer/orders"), 5000);
     } 
   }, [payment_intent, router]);
   return (
