@@ -16,7 +16,7 @@ export const addOrder = async (req, res, next) => {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: listing?.price * 1000000,
         currency: "idr",
-        payment_method_types: ['card'],
+        payment_method_types: ["card"],
       });
       await prisma.orders.create({
         data: {
@@ -26,13 +26,14 @@ export const addOrder = async (req, res, next) => {
           listing: { connect: { id: parseInt(listingId) } },
         },
       });
-      return res.status(201)
-        .json({ clientSecret: paymentIntent.client_secret });;
+      return res
+        .status(201)
+        .json({ clientSecret: paymentIntent.client_secret });
     } else {
       res.status(400).send("Listing id is required.");
     }
   } catch (err) {
-    console.error('Error in addOrder:', err.message, err.stack);
+    console.error("Error in addOrder:", err.message, err.stack);
     return res.status(500).send("Internal Server Error");
   }
 };
@@ -58,8 +59,41 @@ export const getBuyerOrders = async (req, res, next) => {
       const prisma = new PrismaClient();
       const orders = await prisma.orders.findMany({
         where: { buyerId: req.userId, status: parseInt(1) },
-        include: { listing: true,  buyer: true},
-        
+        include: { 
+          listing: {
+            include: {
+              createdBy: true,
+            },
+          }, 
+          buyer: true 
+        },
+      });
+      return res.status(200).json({ orders });
+    }
+    return res.status(400).send("User id is required.");
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send("Internal Server Error");
+  }
+};
+
+export const getSellerOrders = async (req, res, next) => {
+  try {
+    if (req.userId) {
+      const prisma = new PrismaClient();
+      const orders = await prisma.orders.findMany({
+        where: {
+          listing: {
+          createdBy: {
+            id: parseInt(req.userId),
+          },
+        },
+          status: 1,
+        },
+        include: {
+          listing: true,
+          buyer: true,
+        },
       });
       return res.status(200).json({ orders });
     }

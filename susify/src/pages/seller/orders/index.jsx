@@ -1,5 +1,5 @@
 import { useStateProvider } from "@/context/StateContext";
-import { GET_BUYER_ORDERS_ROUTE } from "@/utils/constants";
+import { GET_SELLER_ORDERS_ROUTE } from "@/utils/constants";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ function index() {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const { data } = await axios.get(GET_BUYER_ORDERS_ROUTE, {
+        const { data } = await axios.get(GET_SELLER_ORDERS_ROUTE, {
           withCredentials: true,
         });
         // console.log(data.orders),
@@ -28,7 +28,7 @@ function index() {
 
   return (
     <div className="min-h-[80vh] my-10 mt-0 px-32">
-      <h3 className="m-5 text-2xl font-semibold">All Your Orders</h3>
+      <h3 className="m-5 text-2xl font-semibold">All Sells on Process</h3>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-black">
           <thead className="text-xs text-black uppercase bg-gray-50 bg-lilac text-black-400">
@@ -40,7 +40,7 @@ function index() {
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Seller Name
+                Buyer Name
               </th>
               <th scope="col" className="px-6 py-3">
                 Price
@@ -70,11 +70,13 @@ function index() {
                     {order.listing.title}
                   </th>
                   <td className="px-6 py-4">
-                    {order.listing.createdBy.fullName} 
-                    ({order.listing.createdBy.username})</td>
+                    {order.buyer.fullName} ({order.buyer.username})
+                  </td>
+               
                   <td className="px-6 py-4">{order.price}</td>
                   <td className="px-6 py-4">{order.listing.stock}</td>
                   <td className="px-6 py-4">{order.createdAt.split("T")[0]}</td>
+
 
                   <td className="px-6 py-4 ">
                     <Link
