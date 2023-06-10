@@ -6,8 +6,11 @@ import { FaStar, FaBox, FaMapMarkerAlt } from "react-icons/fa";
 import { useStateProvider } from "../../context/StateContext";
 import { HOST } from "../../utils/constants";
 import { useRouter } from "next/router";
+import { expedition } from ".//../../utils/expedition";
 
 function Pricing() {
+  const labelClassName =
+    "mb-2 text-lg font-medium text-gray-900 dark:text-dark";
   const [{ listingData, userInfo }, dispatch] = useStateProvider();
   const router = useRouter();
 
@@ -35,14 +38,24 @@ function Pricing() {
               </div>
               <ul></ul>
             </div>
-            {/* <ul className="flex gap-1 flex-col">
-              {listingData.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-3">
-                  <BsCheckLg className="text-lilac text-lg" />
-                  <span className="text-[#4f5156]">{feature}</span>
-                </li>
-              ))}
-            </ul> */}
+            <div>
+              <label htmlFor="expedition" className={labelClassName}>
+                Select Expedition
+              </label>
+              <select
+                id="expedition"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
+                name="category"
+                // onChange={handleChange}
+                defaultValue="Choose your expedition"
+              >
+                {expedition.map(({ name }) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
             {listingData.userId === userInfo?.id ? (
               <button
                 className="flex items-center bg-lilac text-white py-2 justify-center font-bold text-lg relative rounded"
@@ -54,7 +67,9 @@ function Pricing() {
             ) : (
               <button
                 className="flex items-center bg-lilac text-white py-2 justify-center font-bold text-lg relative rounded"
-                onClick={() => router.push(`/checkout?listingId=${listingData.id}`)}
+                onClick={() =>
+                  router.push(`/checkout?listingId=${listingData.id}`)
+                }
               >
                 <span>Continue</span>
                 <BiRightArrowAlt className="text-2xl absolute right-4" />
