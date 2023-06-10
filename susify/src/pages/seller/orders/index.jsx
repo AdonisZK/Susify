@@ -43,6 +43,9 @@ function index() {
                 Buyer Name
               </th>
               <th scope="col" className="px-6 py-3">
+                Buyer Address
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Price
               </th>
               <th scope="col" className="px-6 py-3">
@@ -72,7 +75,7 @@ function index() {
                   <td className="px-6 py-4">
                     {order.buyer.fullName} ({order.buyer.username})
                   </td>
-               
+                  <td className="px-6 py-4">{order.buyer.address}</td>
                   <td className="px-6 py-4">{order.price}</td>
                   <td className="px-6 py-4">{order.listing.stock}</td>
                   <td className="px-6 py-4">{order.createdAt.split("T")[0]}</td>
