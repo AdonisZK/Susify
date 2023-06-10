@@ -6,7 +6,8 @@ import { addListing,
     getListingData, 
     editListingData, 
     searchListing,
-    checkListingOrder } from "../controllers/ListingControllers.js";
+    checkListingOrder,
+    addReview } from "../controllers/ListingControllers.js";
 
 export const listingRoutes = Router()
 const upload = multer({ dest: "uploads/" });
@@ -17,3 +18,4 @@ listingRoutes.get("/get-listing-data/:listingId", getListingData)
 listingRoutes.put("/edit-listing/:listingId", verifyToken, upload.array("images"), editListingData)
 listingRoutes.get("/search-listing", searchListing)
 listingRoutes.get("/check-listing-order/:listingId", verifyToken, checkListingOrder);
+listingRoutes.post("/add-review/:listingId", verifyToken, addReview);

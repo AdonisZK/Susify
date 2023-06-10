@@ -53,7 +53,6 @@ function create() {
       console.log(response);
       if (response.status === 201) {
         router.push("/seller/listing");
-        // router.push("/seller/gigs");
       }
     }
   };

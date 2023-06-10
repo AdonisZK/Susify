@@ -18,6 +18,12 @@
 - masuk localhost
 - Coba login -> masukin data
 
+## Update DB Guide (Server)
+### Will Remove Database
+ - npx prisma generate
+ - npx prisma migrate dev --create-only
+ - npx prisma migrate dev
+
 ## Change Log
 [6:00:00] Skipping bearer authentication
 [6:42:00] Setup Stripe on .env

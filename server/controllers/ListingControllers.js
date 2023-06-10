@@ -60,8 +60,26 @@ export const getListingData = async (req, res, next) => {
       const prisma = new PrismaClient();
       const listing = await prisma.listing.findUnique({
         where: { id: parseInt(req.params.listingId) },
-        include: { createdBy: true },
+        include: {
+          reviews: {
+            include: {
+              reviewer: true,
+            },
+          },
+          createdBy: true,
+        },
       });
+
+      // const userWithListing = await prisma.user.findUnique({
+      //   where: { id: listing?.createdBy.id },
+      //   include: {
+      //     listing: {
+      //       include: { reviews: true },
+      //     },
+      //   },
+      // });
+
+
       return res.status(200).json({ listing });
     }
     return res.status(400).send("ListingId is required");
@@ -181,6 +199,38 @@ export const checkListingOrder = async (req, res, next) => {
       return res
         .status(200)
         .json({ hasUserOrderedListing: hasUserOrderedListing ? true : false });
+    }
+    return res.status(400).send("userId and listingId is required.");
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send("Internal Server Error");
+  }
+};
+
+export const addReview = async (req, res, next) => {
+  try {
+    if (req.userId && req.params.listingId) {
+      if (await checkOrder(req.userId, req.params.listingId)) {
+        if (req.body.reviewText && req.body.rating) {
+          const prisma = new PrismaClient();
+          const newReview = await prisma.reviews.create({
+            data: {
+              rating: req.body.rating,
+              reviewText: req.body.reviewText,
+              reviewer: { connect: { id: parseInt(req?.userId) } },
+              listing: { connect: { id: parseInt(req.params.listingId) } },
+            },
+            include: {
+              reviewer: true,
+            },
+          });
+          return res.status(201).json({ newReview });
+        }
+        return res.status(400).send("ReviewText and Rating are required.");
+      }
+      return res
+        .status(400)
+        .send("You need to purchase the listing in order to add review.");
     }
     return res.status(400).send("userId and listingId is required.");
   } catch (err) {

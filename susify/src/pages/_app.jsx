@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
         {/* <AuthWrapper /> */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </StateProvider>
   );

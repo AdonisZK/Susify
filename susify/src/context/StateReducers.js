@@ -39,7 +39,7 @@ const reducer = (state, action) => {
                 isSeller: !state.isSeller,
             };
         case reducerCases.SET_LISTING_DATA:
-            return {
+            return { 
                 ...state,
                 listingData: action.listingData,
             };
