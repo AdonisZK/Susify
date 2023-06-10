@@ -18,3 +18,4 @@ export const EDIT_LISTING_ROUTE = `${LISTING_ROUTES}/edit-listing`;
 export const SEARCH_LISTING_ROUTE = `${LISTING_ROUTES}/search-listing`;
 
 export const CREATE_ORDER = `${ORDERS_ROUTES}/create`;
+export const ORDER_SUCCESS_ROUTE = `${ORDERS_ROUTES}/success`;

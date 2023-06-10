@@ -21,11 +21,8 @@ function Success() {
     };
     if (payment_intent) {
       changeOrderStatus();
-      setTimeout(() => router.push("/buyer/orders"), 5000);
+    //   setTimeout(() => router.push("/buyer/orders"), 5000);
     } 
-    // else {
-    //   router.push("/");
-    // }
   }, [payment_intent, router]);
   return (
     <div className="h-[80vh] flex items-center px-20 pt-20 flex-col">
