@@ -18,6 +18,7 @@
 - /susify yarn dev
 - masuk localhost
 - Coba login -> masukin data
+- Setup Stripe change const stripe at server\controllers\OrderControllers.js, see [6:42:00] for more details
 
 ## Update DB Guide (Server)
 ### Will Remove Database
