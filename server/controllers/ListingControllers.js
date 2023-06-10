@@ -59,7 +59,8 @@ export const getListingData = async (req, res, next) => {
     if (req.params.listingId) {
       const prisma = new PrismaClient();
       const listing = await prisma.listing.findUnique({
-        where: { id: parseInt(req.params.listingId) }
+        where: { id: parseInt(req.params.listingId) },
+        include: { createdBy: true },
       });
       return res.status(200).json({ listing });
     }
@@ -87,8 +88,8 @@ export const editListingData = async (req, res, next) => {
         const { title, description, category, price, stock } = req.query;
         const prisma = new PrismaClient();
         const oldData = await prisma.listing.findUnique({
-          where: { id: parseInt(req.params.listingId) }
-        })
+          where: { id: parseInt(req.params.listingId) },
+        });
         await prisma.listing.update({
           where: { id: parseInt(req.params.listingId) },
           data: {
@@ -119,7 +120,7 @@ export const searchListing = async (req, res, next) => {
     if (req.query.searchTerm || req.query.category) {
       const prisma = new PrismaClient();
       const listing2 = await prisma.listing.findMany(
-        createSearchQuery(req.query.searchTerm, req.query.category),
+        createSearchQuery(req.query.searchTerm, req.query.category)
       );
       return res.status(200).json({ listing2 });
     }
