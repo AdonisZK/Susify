@@ -3,6 +3,7 @@
 ## Important
 - Check server\prisma\schema.prisma
 - Max Price 10.000 for safety reasons.
+- //PCheck for experimental
 
 ## Setup Guide
 - Download Yarn

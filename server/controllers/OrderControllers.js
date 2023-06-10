@@ -18,6 +18,9 @@ export const addOrder = async (req, res, next) => {
         currency: "idr",
         payment_method_types: ["card"],
       });
+
+
+
       await prisma.orders.create({
         data: {
           paymentIntent: paymentIntent.id,
@@ -42,10 +45,30 @@ export const confirmOrder = async (req, res, next) => {
   try {
     if (req.body.paymentIntent) {
       const prisma = new PrismaClient();
+
+      const order = await prisma.orders.findUnique({
+        where: { paymentIntent: req.body.paymentIntent },
+        select: { listingId: true },
+      });
+
+      // PCheck
+      await prisma.listing.update({
+        where: { id: order.listingId },
+        data: {
+          stock: {
+            decrement: 1,
+          },
+        },
+      });
+
       await prisma.orders.update({
         where: { paymentIntent: req.body.paymentIntent },
         data: { status: parseInt(1) },
       });
+
+      return res.status(200).send("Order confirmed.");
+    } else {
+      res.status(400).send("Payment intent is required.");
     }
   } catch (err) {
     console.log(err);
@@ -59,13 +82,13 @@ export const getBuyerOrders = async (req, res, next) => {
       const prisma = new PrismaClient();
       const orders = await prisma.orders.findMany({
         where: { buyerId: req.userId, status: parseInt(1) },
-        include: { 
+        include: {
           listing: {
             include: {
               createdBy: true,
             },
-          }, 
-          buyer: true 
+          },
+          buyer: true
         },
       });
       return res.status(200).json({ orders });
@@ -84,10 +107,10 @@ export const getSellerOrders = async (req, res, next) => {
       const orders = await prisma.orders.findMany({
         where: {
           listing: {
-          createdBy: {
-            id: parseInt(req.userId),
+            createdBy: {
+              id: parseInt(req.userId),
+            },
           },
-        },
           status: 1,
         },
         include: {

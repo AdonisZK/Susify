@@ -70,17 +70,32 @@ export const getListingData = async (req, res, next) => {
         },
       });
 
-      // const userWithListing = await prisma.user.findUnique({
-      //   where: { id: listing?.createdBy.id },
-      //   include: {
-      //     listing: {
-      //       include: { reviews: true },
-      //     },
-      //   },
-      // });
+      const userWithListing = await prisma.user.findUnique({
+        where: { id: listing?.createdBy.id },
+        include: {
+          listing: {
+            include: { reviews: true },
+          },
+        },
+      });
+
+      const totalReviews = userWithListing.listing.reduce(
+        (acc, listing) => acc + listing.reviews.length,
+        0
+      );
+
+      const averageRating = (
+        userWithListing.listing.reduce(
+          (acc, listing) =>
+            acc + listing.reviews.reduce((sum, review) => sum + review.rating, 0),
+          0
+        ) / totalReviews
+      ).toFixed(1);
 
 
-      return res.status(200).json({ listing });
+      return res
+      .status(200)
+      .json({ listing: { ...listing, totalReviews, averageRating } });
     }
     return res.status(400).send("ListingId is required");
   } catch (err) {
