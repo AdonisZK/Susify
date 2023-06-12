@@ -19,8 +19,6 @@ export const addOrder = async (req, res, next) => {
         payment_method_types: ["card"],
       });
 
-
-
       await prisma.orders.create({
         data: {
           paymentIntent: paymentIntent.id,

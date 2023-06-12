@@ -22,6 +22,8 @@ model User {
   listing          Listing[]
   orders           Orders[]
   reviews          Reviews[]
+  messagesSent     Message[] @relation("sentMessages")
+  messagesReceived Message[] @relation("receivedMessages")
 }
 
 model Listing {
@@ -40,16 +42,17 @@ model Listing {
 }
 
 model Orders {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  buyer         User     @relation(fields: [buyerId], references: [id])
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  buyer         User      @relation(fields: [buyerId], references: [id])
   buyerId       Int
-  paymentIntent String   @unique
-  status        Int      @default(0)
+  paymentIntent String    @unique
+  status        Int       @default(0)
   // 0 = not completed, 1 = completed, 2 = cancelled, 3 = refunded
-  listing       Listing  @relation(fields: [listingId], references: [id])
+  listing       Listing   @relation(fields: [listingId], references: [id])
   listingId     Int
   price         Int
+  messages      Message[]
 }
 
 model Reviews {
@@ -61,4 +64,33 @@ model Reviews {
   listingId  Int
   reviewer   User     @relation(fields: [reviewerId], references: [id])
   reviewerId Int
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  text        String
+  createdAt   DateTime @default(now())
+  isRead      Boolean  @default(false)
+  sender      User     @relation("sentMessages", fields: [senderId], references: [id])
+  senderId    Int
+  recipient   User     @relation("receivedMessages", fields: [recipientId], references: [id])
+  recipientId Int
+  order       Orders   @relation(fields: [orderId], references: [id])
+  orderId     Int
+}
+
+model ListingLog {
+  id             Int      @id @default(autoincrement())
+  listingId      Int
+  createdAt      DateTime @default(now())
+  titleOld       String?
+  titleNew       String?
+  descriptionOld String?
+  descriptionNew String?
+  categoryOld    String?
+  categoryNew    String?
+  stockOld       Int?
+  stockNew       Int?
+  priceOld       Int?
+  priceNew       Int?
 }

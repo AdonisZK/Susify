@@ -3,6 +3,7 @@
 ## Important
 - Check server\prisma\schema.prisma
 - Max Price 10.000 for safety reasons.
+- SELECT tgname FROM pg_trigger;
 - //PCheck for experimental
 
 ## Setup Guide
@@ -14,11 +15,13 @@
 - Cek server/.env sesuain sama local 
 - https://youtu.be/cJ7xvBkuqiA?t=6635 coba import db ke postgresql
 - Cek table di postgres sama /server (npx prisma studio)
+- Insert query di server\listing_log_trigger.sql ke pgadmin4 for trigger
 - /server yarn dev
 - /susify yarn dev
 - masuk localhost
 - Coba login -> masukin data
 - Setup Stripe change const stripe at server\controllers\OrderControllers.js, see [6:42:00] for more details
+- https://stripe.com/docs/testing for confirm payment
 
 ## Update DB Guide (Server)
 ### Will Remove Database
