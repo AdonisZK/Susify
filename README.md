@@ -13,6 +13,7 @@
 - Masuk /server npm install
 - Masuk /susify npm install
 - Cek server/.env sesuain sama local 
+- https://youtu.be/cJ7xvBkuqiA?t=1311
 - https://youtu.be/cJ7xvBkuqiA?t=6635 coba import db ke postgresql
 - Cek table di postgres sama /server (npx prisma studio)
 - Insert query di server\listing_log_trigger.sql ke pgadmin4 for trigger
