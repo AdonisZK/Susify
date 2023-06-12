@@ -5,7 +5,7 @@
 - Max Price 10.000 for safety reasons.
 - SELECT tgname FROM pg_trigger;
 - //PCheck for experimental features
-- 
+-  Logout by deleting cookies
 
 ## Setup Guide
 - Download Yarn
