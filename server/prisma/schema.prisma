@@ -94,3 +94,16 @@ model ListingLog {
   priceOld       Int?
   priceNew       Int?
 }
+
+model UserLog {
+  id             Int      @id @default(autoincrement())
+  userId         Int
+  usernameOld    String?
+  usernameNew    String?
+  descriptionOld String?
+  descriptionNew String?
+  addressOld     String?
+  addressNew     String?
+  noOld          String?
+  noNew          String?
+}
