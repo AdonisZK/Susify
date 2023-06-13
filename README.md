@@ -29,8 +29,8 @@
  - npx prisma migrate dev --create-only
  - npx prisma migrate dev
 
-## Ref
-- ![Untitled-1](https://github.com/AdonisZK/Susify/assets/48209612/8ed29981-d472-4a69-b0f1-37d705231d65)
+## Reference
+![Untitled-1](https://github.com/AdonisZK/Susify/assets/48209612/8ed29981-d472-4a69-b0f1-37d705231d65)
 - Next.js : https://nextjs.org/
 - Tailwind CSS : https://tailwindcss.com/
 - Node.js: https://nodejs.org/en
