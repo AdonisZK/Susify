@@ -14,13 +14,7 @@ function Index() {
   return (  
   <div>
     <HeroBanner />
-    {/* <Companies /> */}
     <PopularServices />
-    {/* <Everything /> */}
-    {/* <Services /> */}
-    {/* <AuthWrapper /> */}
-    {/* <FiverrBusiness />
-    <JoinFiverr /> */}
     {
       (showLoginModal || showSignupModal) && <AuthWrapper  type={showLoginModal ? "login" : "signup"} />
     }
