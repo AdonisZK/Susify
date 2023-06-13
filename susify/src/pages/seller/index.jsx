@@ -90,19 +90,19 @@ function Index() {
               <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
                 <h2 className="text-xl">Earnings Today</h2>
                 <h3 className="text-[#C8A2C8] text-3xl font-extrabold">
-                  ${dashboardData?.dailyRevenue}
+                  IDR{dashboardData?.dailyRevenue}
                 </h3>
               </div>
               <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
                 <h2 className="text-xl">Earnings Monthly</h2>
                 <h3 className="text-[#C8A2C8] text-3xl font-extrabold">
-                  ${dashboardData?.monthlyRevenue}
+                  IDR{dashboardData?.monthlyRevenue}
                 </h3>
               </div>
               <div className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300">
                 <h2 className="text-xl">Earnings Yearly</h2>
                 <h3 className="text-[#C8A2C8] text-3xl font-extrabold">
-                  ${dashboardData?.revenue}
+                  IDR{dashboardData?.revenue}
                 </h3>
               </div>
             </div>
