@@ -148,6 +148,39 @@ export const editListingData = async (req, res, next) => {
   }
 };
 
+export const deleteListingData = async (req, res) => {
+  try {
+    const prisma = new PrismaClient();
+    const listingId = parseInt(req.params.listingId);
+
+    // Fetch the listing data to delete associated images
+    const listingData = await prisma.listing.findUnique({
+      where: { id: listingId },
+    });
+
+    if (!listingData) {
+      return res.status(404).send("Listing not found.");
+    }
+
+    // Delete the listing from the database
+    await prisma.listing.delete({
+      where: { id: listingId },
+    });
+
+    // Delete associated images from the server
+    listingData.images.forEach((image) => {
+      if (existsSync(`uploads/${image}`)) {
+        unlinkSync(`uploads/${image}`);
+      }
+    });
+
+    res.status(200).send("Listing deleted successfully.");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 export const searchListing = async (req, res, next) => {
   try {
     if (req.query.searchTerm || req.query.category) {

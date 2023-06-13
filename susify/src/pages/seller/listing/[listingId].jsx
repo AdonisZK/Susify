@@ -1,10 +1,31 @@
 import ImageUpload from "../../../components/ImageUpload";
 import { categories } from "../../../utils/categories";
-import { EDIT_LISTING_ROUTE, GET_LISTING_DATA, HOST } from "../../../utils/constants";
+import {
+  EDIT_LISTING_ROUTE,
+  GET_LISTING_DATA,
+  DELETE_LISTING_ROUTE,
+  HOST,
+} from "../../../utils/constants";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+
+const deleteListing = async () => {
+  try {
+    const response = await axios.delete(`${DELETE_LISTING_ROUTE}/${data.id}`, {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${cookies.jwt}`,
+      },
+    });
+    if (response.status === 200) {
+      router.push("/seller/listing");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 function EditListing() {
   const [cookies] = useCookies();
@@ -35,7 +56,7 @@ function EditListing() {
           data: { listing },
         } = await axios.get(`${GET_LISTING_DATA}/${listingId}`);
 
-        setData({ ...listing,  });
+        setData({ ...listing });
 
         listing.images.forEach((image) => {
           const url = HOST + "/uploads/" + image;
@@ -54,9 +75,24 @@ function EditListing() {
     if (listingId) fetchListingData();
   }, [listingId]);
 
+  const deleteListing = async () => {
+    try {
+      const response = await axios.delete(`${DELETE_LISTING_ROUTE}/${data.id}`, {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${cookies.jwt}`,
+        },
+      });
+      if (response.status === 200) {
+        router.push("/seller/listing");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   const editListing = async () => {
-    const { category, description, price, stock, title } =
-      data;
+    const { category, description, price, stock, title } = data;
     if (
       category &&
       description &&
@@ -194,6 +230,15 @@ function EditListing() {
           Edit Listing
         </button>
       </div>
+      <div>
+      <button
+        className="border mt-5 ml text-lg font-semibold px-5 py-3 border-red-500 bg-red-500 text-white rounded-md"
+        type="button"
+        onClick={deleteListing}
+      >
+        Delete Listing
+      </button>
+    </div>
     </div>
   );
 }

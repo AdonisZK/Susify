@@ -17,6 +17,7 @@ export const ADD_LISTING_ROUTE = `${LISTING_ROUTES}/add`;
 export const GET_USER_LISTING_ROUTE = `${LISTING_ROUTES}/get-user-listing`;
 export const GET_LISTING_DATA = `${LISTING_ROUTES}/get-listing-data`;
 export const EDIT_LISTING_ROUTE = `${LISTING_ROUTES}/edit-listing`;
+export const DELETE_LISTING_ROUTE = `${LISTING_ROUTES}/delete-listing`;
 export const SEARCH_LISTING_ROUTE = `${LISTING_ROUTES}/search-listing`;
 export const CHECK_USER_ORDERED_LISTING_ROUTE = `${LISTING_ROUTES}/check-listing-order`;
 export const ADD_REVIEW = `${LISTING_ROUTES}/add-review`;

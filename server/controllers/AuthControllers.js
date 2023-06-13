@@ -81,7 +81,6 @@ export const getUserInfo = async (req, res, next) => {
         },
       });
       delete user.password;
-      console.log({ user })
       return res.status(200).json({ user })
     }
   }

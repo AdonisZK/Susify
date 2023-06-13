@@ -7,7 +7,8 @@ import { addListing,
     editListingData, 
     searchListing,
     checkListingOrder,
-    addReview } from "../controllers/ListingControllers.js";
+    addReview,
+    deleteListingData } from "../controllers/ListingControllers.js";
     
 
 export const listingRoutes = Router()
@@ -17,6 +18,7 @@ listingRoutes.post("/add", verifyToken, upload.array("images"), addListing)
 listingRoutes.get("/get-user-listing", verifyToken, getUserAuthListing)
 listingRoutes.get("/get-listing-data/:listingId", getListingData)
 listingRoutes.put("/edit-listing/:listingId", verifyToken, upload.array("images"), editListingData)
+listingRoutes.delete("/delete-listing/:listingId", verifyToken, deleteListingData);
 listingRoutes.get("/search-listing", searchListing)
 listingRoutes.get("/check-listing-order/:listingId", verifyToken, checkListingOrder);
 listingRoutes.post("/add-review/:listingId", verifyToken, addReview);
