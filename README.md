@@ -2,7 +2,7 @@
 
 ## Important
 - Check server\prisma\schema.prisma
-- Max Price 10.000 for safety reasons.
+- Max Price 10.000 reason : https://stripe.com/docs/currencies?locale=id-ID.
 - SELECT tgname FROM pg_trigger;
 - Logout by deleting cookies
 
