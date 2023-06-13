@@ -1,4 +1,5 @@
 # Susify
+## Final Project Manajemen Basis Data (D) 
 
 ## Important
 - Check server\prisma\schema.prisma
