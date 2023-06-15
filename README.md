@@ -2,7 +2,7 @@
 ## Final Project Manajemen Basis Data (D) 
 
 ## Setup Guide
-- Install Yarnhttps://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+- Install Yarn https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
 - Install Postgresql https://www.youtube.com/watch?v=0n41UTkOBb0&t=386s
 - On /server npm install
 - On /susify npm install
