@@ -3,7 +3,7 @@
 
 ## Setup Guide
 - Install Yarn https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
-- Install Postgresql https://www.youtube.com/watch?v=0n41UTkOBb0&t=386s
+- Install Postgresql https://www.postgresql.org/download/
 - On /server npm install
 - On /susify npm install
 - Adjust server/.env 
