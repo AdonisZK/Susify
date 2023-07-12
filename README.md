@@ -27,3 +27,6 @@
 - PostgreSQL : https://www.postgresql.org/
 - Prisma : https://www.prisma.io/
 - https://github.com/koolkishan/fiver-clone
+
+## Preview
+![Screenshot 2023-07-12 195952](https://github.com/AdonisZK/Susify/assets/48209612/3a6ff9ce-3406-43d5-bf0a-8ae1953a3c24)
