@@ -11,15 +11,16 @@
 - Insert trigger
 - On /server yarn dev
 - On /susify yarn dev
-- https://stripe.com/docs/testing for confirm payment
+- https://stripe.com/docs/testing (payment)
 
-## Setup/Update DB Guide (**Will Remove Database**)
+## Setup/Update DB Guide 
  - npx prisma generate
  - npx prisma migrate dev --create-only
  - npx prisma migrate dev
 
 ## Reference
 ![Untitled-1](https://github.com/AdonisZK/Susify/assets/48209612/8ed29981-d472-4a69-b0f1-37d705231d65)
+- Express : https://expressjs.com/
 - Next.js : https://nextjs.org/
 - Tailwind CSS : https://tailwindcss.com/
 - Node.js: https://nodejs.org/en
@@ -27,7 +28,7 @@
 - PostgreSQL : https://www.postgresql.org/
 - Prisma : https://www.prisma.io/
 - https://github.com/koolkishan/fiver-clone
-- Express : https://expressjs.com/
+
 
 ## Preview
 ![Screenshot 2023-07-12 195952](https://github.com/AdonisZK/Susify/assets/48209612/3a6ff9ce-3406-43d5-bf0a-8ae1953a3c24)
