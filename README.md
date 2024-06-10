@@ -7,16 +7,31 @@
 - On /server npm install
 - On /susify npm install
 - Adjust server/.env 
-- Import db ke postgresql
+- Import db to postgresql
 - Insert trigger
+
+## Initial configuration
+Create an `.env` file and setup the variables
+
+```
+cp .env.example .env
+```
+
+Migrate with prisma in order to create the required database tables
+```
+npx prisma migrate deploy
+```
+
+or
+
+```
+yarn prisma migrate deploy
+```
+
+## Run
 - On /server yarn dev
 - On /susify yarn dev
 - https://stripe.com/docs/testing (payment)
-
-## Setup/Update DB Guide 
- - npx prisma generate
- - npx prisma migrate dev --create-only
- - npx prisma migrate dev
 
 ## Reference
 ![Untitled-1](https://github.com/AdonisZK/Susify/assets/48209612/8ed29981-d472-4a69-b0f1-37d705231d65)
